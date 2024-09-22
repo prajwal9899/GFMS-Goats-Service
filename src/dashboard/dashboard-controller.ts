@@ -77,7 +77,6 @@ export class DashboardController {
           const ageInMonths = this.dashboardService.getAgeInMonths(
             record.dob as string,
           );
-          console.log(ageInMonths);
           return ageInMonths >= 6 && ageInMonths <= 9;
         });
         res.json({ count: filteredRecords.length });

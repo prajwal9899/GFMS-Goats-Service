@@ -17,8 +17,8 @@ import {
 import mongoose, { Types } from "mongoose";
 
 export class AnimalService {
-    async createProduct(product: Animal) {
-        return (await animalModel.create(product)) as Animal;
+    async createAnimal(animal: Animal) {
+        return (await animalModel.create(animal)) as Animal;
     }
 
     async addVaccine(vaccineData: Vaccine, animalId: string) {
@@ -38,7 +38,7 @@ export class AnimalService {
 
     async addWeight(weightData: Weight, animalId: string) {
         try {
-            const weight = new animalVaccineModel(weightData);
+            const weight = new animalWeightModel(weightData);
             await weight.save();
             const animal = await animalModel.findById(animalId);
             if (animal && weight) {

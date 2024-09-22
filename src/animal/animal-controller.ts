@@ -10,22 +10,17 @@ import {
 
 export class AnimalController {
     constructor(
-        private animalService: AnimalService,
-        // private logger: Logger,
+        private animalService: AnimalService
     ) {}
     create = async (req: Request, res: Response, next: NextFunction) => {
         const result = validationResult(req);
         if (!result.isEmpty()) {
             return next(createHttpError(400, result.array()[0].msg as string));
         }
-
         const animal: Animal = { ...req.body };
-
-        const newAnimal = await this.animalService.createProduct(
-            animal as unknown as Animal,
+        const newAnimal = await this.animalService.createAnimal(
+            animal
         );
-
-        console.log(`Animal category`, { id: newAnimal._id });
         res.json({ id: newAnimal });
     };
 
