@@ -16,33 +16,40 @@ const animalService = new AnimalService();
 const animalController = new AnimalController(animalService);
 
 router.post(
-    "/",
-    // authenticate,
-    // canAccess([Roles.ADMIN, Roles.MANAGER]),
-    createGoatValidator,
-    asyncWrapper(animalController.create),
+  "/",
+  // authenticate,
+  // canAccess([Roles.ADMIN, Roles.MANAGER]),
+  createGoatValidator,
+  asyncWrapper(animalController.create),
 );
 
 router.post(
-    "/vaccine/:animalId",
-    // authenticate,
-    addVaccineValidator,
-    asyncWrapper(animalController.addVaccine),
+  "/excel-upload",
+  // authenticate,
+  // canAccess([Roles.ADMIN, Roles.MANAGER]),
+  createGoatValidator,
+  asyncWrapper(animalController.excelUpload),
 );
 
 router.post(
-    "/weight/:animalId",
-    // authenticate,
-    addWeightValidator,
-    asyncWrapper(animalController.addWeight),
+  "/vaccine/:animalId",
+  // authenticate,
+  addVaccineValidator,
+  asyncWrapper(animalController.addVaccine),
 );
 
+router.post(
+  "/weight/:animalId",
+  // authenticate,
+  addWeightValidator,
+  asyncWrapper(animalController.addWeight),
+);
 
 router.post(
-    "/:animalId",
-    // authenticate,
-    // canAccess([Roles.ADMIN, Roles.MANAGER]),
-    asyncWrapper(animalController.getSingle),
+  "/:animalId",
+  // authenticate,
+  // canAccess([Roles.ADMIN, Roles.MANAGER]),
+  asyncWrapper(animalController.getSingle),
 );
 
 // router.put(

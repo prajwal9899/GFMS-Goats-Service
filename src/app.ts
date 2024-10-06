@@ -14,6 +14,8 @@ app.use(
       "http://localhost:5174",
       "https://gfms-admin-dashboard.vercel.app/",
       "https://gfms-admin-dashboard.vercel.app",
+      "https://gfms-hosting.web.app",
+      "https://gfms-hosting.web.app/",
     ],
     credentials: true,
   }),
